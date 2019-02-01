@@ -3,23 +3,48 @@ import React, { Component } from 'react';
 class Method extends Component {
   constructor(props) {
     super(props)
-    this.onClick = this.onClick.bind(this);
+    this.onHover = this.onHover.bind(this);
+    this.fills = {
+      "gem/puma":"#ff0029",
+      "gem/railties":"#377eb8",
+      "gem/actionpack":"#66a61e",
+      "gem/rack":"#984ea3",
+      "gem/activesupport":"#00d2d5",
+      "gem/activerecord":"#ff7f00",
+      "gem/concurrent":"#af8d00",
+      "gem/actionview":"#7f80cd",
+      "gem/i18n":"#b3e900",
+      "gem/arel":"#c42e60",
+      "gem/sqlite3":"#a65628",
+      "gem/activemodel":"#f781bf",
+      "gem/sprockets":"#8dd3c7",
+      "application":"#bebada",
+      "standard_library":"#fb8072",
+      "gem/turbolinks":"#80b1d3",
+      "other":"#fdb462",
+    }
   }
 
-  onClick() {
+  onHover() {
     console.log(this.props)
+  }
+
+  fill() {
+    return this.fills[this.props.type];
   }
 
   render() {
     return (
       <rect
-        onClick={this.onClick}
+        onMouseEnter={this.onHover}
         x={this.props.x}
-        y={this.props.y * 8}
+        y={this.props.y * 7}
         width={this.props.width}
-        height="6"
-        stroke="none"
-        fill="#AAA"
+        height="7"
+        strokeOpacity="0.5"
+        stroke="#000"
+        strokeWidth="1"
+        fill={this.fill()}
       />
     );
   }
