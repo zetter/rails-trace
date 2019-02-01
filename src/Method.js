@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 class Method extends Component {
   render() {
     return (
-      <rect x={this.props.x} y={this.props.y * 8} width={this.props.width} height="6" stroke="none" fill="#AAA"/>
+      <rect
+        onClick={this.onClick}
+        x={this.props.x}
+        y={this.props.y * 8}
+        width={this.props.width}
+        height="6"
+        stroke="none"
+        fill="#AAA"
+      />
     );
   }
 }
