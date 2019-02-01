@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Method extends Component {
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    console.log(this.props)
+  }
+
   render() {
     return (
       <rect
