@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Method extends Component {
   constructor(props) {
     super(props)
-    this.onHover = this.onHover.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.fills = {
       "gem/puma":"#ff0029",
       "gem/railties":"#377eb8",
@@ -25,23 +25,24 @@ class Method extends Component {
     }
   }
 
-  onHover() {
-    console.log(this.props)
+  onClick() {
+    this.props.updateSelected(this.props.traceLine)
   }
 
   fill() {
-    return this.fills[this.props.type];
+    return this.fills[this.props.traceLine.type];
   }
 
   render() {
+    const traceLine = this.props.traceLine;
     return (
       <rect
-        onMouseEnter={this.onHover}
-        x={this.props.x}
-        y={this.props.y * 7}
-        width={this.props.width}
+        onClick={this.onClick}
+        x={traceLine.x}
+        y={traceLine.y * 7}
+        width={traceLine.width}
         height="7"
-        strokeOpacity="0.5"
+        strokeOpacity="0.1"
         stroke="#000"
         strokeWidth="1"
         fill={this.fill()}

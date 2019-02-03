@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Trace from './Trace';
 
 class App extends Component {
