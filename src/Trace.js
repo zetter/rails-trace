@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Method from './Method'
 import './Trace.css'
+import lookup from './Metadata'
 
 class Trace extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Trace extends Component {
 
   render() {
     const selected = this.state.selected;
+    const metadata = selected && lookup(selected.type)
     return (
       <>
         <svg width="102000" height="1000">
@@ -30,6 +32,7 @@ class Trace extends Component {
 
         {selected &&
           <div className="info-box">
+            <h1>{metadata.name}</h1>
             {selected.path}:{selected.line_start}<br/>
             {selected.class}<br/>
             {selected.method}<br/>
