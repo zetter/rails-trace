@@ -29,12 +29,17 @@ class Method extends Component {
     this.props.updateSelected(this.props.traceLine)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.selected !== nextProps.selected
+  }
+
   fill() {
     return this.fills[this.props.traceLine.type];
   }
 
   render() {
     const traceLine = this.props.traceLine;
+    const selected = this.props.selected;
     return (
       <rect
         onClick={this.onClick}
@@ -42,9 +47,9 @@ class Method extends Component {
         y={traceLine.y * 7}
         width={traceLine.width}
         height="7"
-        strokeOpacity="0.1"
+        strokeOpacity={selected ? '1' : '0.2'}
         stroke="#000"
-        strokeWidth="1"
+        strokeWidth={selected ? '2' : '1'}
         fill={this.fill()}
       />
     );
