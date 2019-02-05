@@ -32,7 +32,7 @@ class Trace extends Component {
 
         {selected &&
           <div className="info-box">
-            <h1>{metadata.name}</h1>
+            <h1 className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</h1>
             {selected.path}:{selected.line_start}<br/>
             {selected.class}<br/>
             {selected.method}<br/>
