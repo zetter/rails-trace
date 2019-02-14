@@ -12,3 +12,18 @@
   margin-top: 0px;
   padding-bottom: 10px;
 }
+
+.info-box .info-table {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.info-box .info-table th {
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+.info-box .info-table th:last-child,
+.info-box .info-table td:last-child {
+  padding-left: 20px;
+}

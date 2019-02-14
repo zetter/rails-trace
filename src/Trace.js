@@ -16,7 +16,12 @@ class Trace extends Component {
 
   render() {
     const selected = this.state.selected;
-    const metadata = selected && lookup(selected.type)
+    var metadata, code_url;
+    if (selected) {
+      metadata = lookup(selected.type);
+      code_url = `${metadata.path}${selected.path}#L${selected.line_start}`;
+    }
+
     return (
       <>
         <svg width="102000" height="1000">
@@ -33,9 +38,21 @@ class Trace extends Component {
         {selected &&
           <div className="info-box">
             <h1 className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</h1>
-            {selected.path}:{selected.line_start}<br/>
-            {selected.class}<br/>
-            {selected.method}<br/>
+            <table className="info-table">
+              <thead>
+                <tr>
+                  <th>Class / Module</th>
+                  <th>Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>{selected.class}</code></td>
+                  <td><code>{selected.method_prefix}{selected.method}</code></td>
+                </tr>
+              </tbody>
+            </table>
+            🔎 <a href={code_url}>{selected.path}:{selected.line_start}</a>
           </div>
         }
       </>
