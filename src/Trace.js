@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Method from './Method'
+import Info from './Info'
 import './Trace.css'
 import lookup from './Metadata'
 
@@ -24,6 +25,7 @@ class Trace extends Component {
 
     return (
       <>
+        <Info/>
         <svg width="102000" height="1000">
         {this.props.trace.map((traceLine, i) =>
           <Method

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grommet } from 'grommet';
 import Trace from './Trace';
 
 class App extends Component {
@@ -15,7 +16,9 @@ class App extends Component {
 
   render() {
     return (
-      <Trace trace={this.state.trace}/>
+      <Grommet plain>
+        <Trace trace={this.state.trace}/>
+      </Grommet>
     );
   }
 }
