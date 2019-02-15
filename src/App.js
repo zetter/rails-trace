@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     return (
-      <Grommet plain>
+      <Grommet plain className="container">
         <Trace trace={this.state.trace}/>
       </Grommet>
     );

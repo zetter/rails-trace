@@ -36,7 +36,8 @@ class Trace extends Component {
 
     return (
       <>
-        <svg width="102000" height="900">
+        <Info/>
+        <svg class="trace" width="10000" height="900">
           {notSelectedLines.map((traceLine, i) =>
             <Method
               key={traceLine.x}
@@ -78,7 +79,6 @@ class Trace extends Component {
             <p>Select a bar above to find out the method it represents</p>
           }
         </Layer>
-        <Info/>
       </>
     );
   }

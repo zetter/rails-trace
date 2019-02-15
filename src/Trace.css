@@ -1,3 +1,7 @@
+.trace {
+  flex: 0 0 auto;
+}
+
 .info-box {
   position: fixed;
   left: 0;
