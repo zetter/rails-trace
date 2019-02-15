@@ -7,15 +7,16 @@
   border-radius: 2px;
 }
 
-
 .info-box .name {
   margin-top: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 25px;
 }
 
 .info-box .info-table {
   text-align: left;
-  margin-bottom: 20px;
+  border-spacing: 0px;
+  margin-bottom: 5px;
 }
 
 .info-box .info-table th {
