@@ -1,0 +1,22 @@
+.method {
+  stroke: #000;
+  stroke-opacity: 0.2;
+  stroke-width: 1px;
+}
+
+.method.selected {
+  stroke-opacity: 1;
+  stroke-width: 3px;
+  animation: 0.5s select linear forwards;
+}
+
+@keyframes select {
+  0% {
+    stroke-opacity: 0.2;
+    stroke-width: 1px;
+  }
+  100% {
+    stroke-opacity: 1;
+    stroke-width: 3px;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import lookup from './Metadata'
+import './Method.css'
 
 class Method extends Component {
   constructor(props) {
@@ -26,9 +27,7 @@ class Method extends Component {
         y={traceLine.y * 7}
         width={traceLine.width}
         height="7"
-        strokeOpacity={selected ? '1' : '0.2'}
-        stroke="#000"
-        strokeWidth={selected ? '2' : '1'}
+        className={`method ${selected ? 'selected' : ''}`}
         fill={this.metadata.colour}
       />
     );

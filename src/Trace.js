@@ -31,17 +31,28 @@ class Trace extends Component {
       code_url = `${metadata.path}${selected.path}#L${selected.line_start}`;
     }
 
+    const notSelectedLines = this.props.trace.filter(traceLine => traceLine.x !== (selected && selected.x));
+    const selectedLines = this.props.trace.filter(traceLine => traceLine.x === (selected && selected.x));
+
     return (
       <>
         <svg width="102000" height="900">
-        {this.props.trace.map((traceLine, i) =>
-          <Method
-            key={traceLine.x}
-            updateSelected={this.updateSelected}
-            traceLine={traceLine}
-            selected={traceLine.x === (selected && selected.x)}
-          />
-        )}
+          {notSelectedLines.map((traceLine, i) =>
+            <Method
+              key={traceLine.x}
+              updateSelected={this.updateSelected}
+              traceLine={traceLine}
+              selected={false}
+            />
+          )}
+          {selectedLines.map((traceLine, i) =>
+            <Method
+              key={traceLine.x}
+              updateSelected={this.updateSelected}
+              traceLine={traceLine}
+              selected={true}
+            />
+          )}
         </svg>
         <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
           {selected && <>
