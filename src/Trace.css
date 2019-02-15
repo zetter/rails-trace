@@ -5,18 +5,35 @@
   background-color: #FFF;
   padding: 20px;
   border-radius: 2px;
+  overflow-x: scroll;
+}
+
+@media only screen and (max-width: 700px) {
+  .info-box {
+    font-size: 0.9em;
+  }
+
+  .info-box p {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info-box {
+    width: 100%
+  }
 }
 
 .info-box .name {
   margin-top: 0px;
   padding-bottom: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 0.9em;
 }
 
 .info-box .info-table {
   text-align: left;
   border-spacing: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 0.4em;
 }
 
 .info-box .info-table th {

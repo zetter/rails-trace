@@ -43,9 +43,8 @@ class Trace extends Component {
           />
         )}
         </svg>
-        <Layer className="info-box" position="bottom-left" modal={false} pad="medium">
-          <Box pad="medium">
-            {selected && <>
+        <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
+          {selected && <>
               <Heading level="2" className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</Heading>
               <table className="info-table">
                 <thead>
@@ -61,13 +60,12 @@ class Trace extends Component {
                   </tr>
                 </tbody>
               </table>
-               <Paragraph margin={{bottom: 'none'}}>🔎 <a href={code_url}>{selected.path}:{selected.line_start}</a></Paragraph>
-              </>
-            }
-            {!selected &&
-              <p>Select a bar above to find out the method it represents</p>
-            }
-          </Box>
+              <Paragraph margin={{bottom: 'none'}}>🔎<a href={code_url}>{selected.path}:{selected.line_start}</a></Paragraph>
+            </>
+          }
+          {!selected &&
+            <p>Select a bar above to find out the method it represents</p>
+          }
         </Layer>
         <Info/>
       </>
