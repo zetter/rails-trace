@@ -22,13 +22,15 @@ class Method extends Component {
     const selected = this.props.selected;
 
     const info = additionalInfo(traceLine.class, traceLine.method)
+    const x = traceLine.x + 40
+    const y = traceLine.y * 7
 
     return (
       <>
         <rect
           onClick={this.onClick}
-          x={traceLine.x}
-          y={traceLine.y * 7}
+          x={x}
+          y={y}
           width={traceLine.width}
           height="7"
           className={`method ${selected ? 'selected' : ''}`}
@@ -37,21 +39,21 @@ class Method extends Component {
         {info &&
           <>
             <line
-              x1={traceLine.x}
-              y1={traceLine.y * 7 + 3}
-              x2={traceLine.x}
-              y2={traceLine.y * 7 + 200}
+              x1={x}
+              y1={y + 3}
+              x2={x}
+              y2={y + 200}
               stroke="#444"
             />
             <circle
-              cx={traceLine.x}
-              cy={traceLine.y * 7 + 200}
+              cx={x}
+              cy={y + 200}
               r="20"
               fill="#444"
             />
             <text
-              x={traceLine.x - 8}
-              y={traceLine.y * 7 + 210}
+              x={x - 8}
+              y={y + 210}
               font-size="30"
               font-weight="bold"
               fill="#FFF">
