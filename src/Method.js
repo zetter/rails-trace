@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import lookup from './Metadata'
+import lookup, { additionalInfo } from './Metadata'
 import './Method.css'
 
 class Method extends Component {
@@ -20,16 +20,46 @@ class Method extends Component {
   render() {
     const traceLine = this.props.traceLine;
     const selected = this.props.selected;
+
+    const info = additionalInfo(traceLine.class, traceLine.method)
+
     return (
-      <rect
-        onClick={this.onClick}
-        x={traceLine.x}
-        y={traceLine.y * 7}
-        width={traceLine.width}
-        height="7"
-        className={`method ${selected ? 'selected' : ''}`}
-        fill={this.metadata.colour}
-      />
+      <>
+        <rect
+          onClick={this.onClick}
+          x={traceLine.x}
+          y={traceLine.y * 7}
+          width={traceLine.width}
+          height="7"
+          className={`method ${selected ? 'selected' : ''}`}
+          fill={this.metadata.colour}
+        />
+        {info &&
+          <>
+            <line
+              x1={traceLine.x}
+              y1={traceLine.y * 7 + 3}
+              x2={traceLine.x}
+              y2={traceLine.y * 7 + 200}
+              stroke="#444"
+            />
+            <circle
+              cx={traceLine.x}
+              cy={traceLine.y * 7 + 200}
+              r="20"
+              fill="#444"
+            />
+            <text
+              x={traceLine.x - 8}
+              y={traceLine.y * 7 + 210}
+              font-size="30"
+              font-weight="bold"
+              fill="#FFF">
+              ?
+            </text>
+          </>
+        }
+      </>
     );
   }
 }

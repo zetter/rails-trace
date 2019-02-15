@@ -19,4 +19,10 @@ function lookup(type) {
  }[type] || {name: "Other", colour:"#fdb462"}
 }
 
-export default lookup;
+function additionalInfo(klass, method) {
+  return {
+    'Puma::Server/process_client': 'Stuff'
+  }[`${klass}/${method}`]
+}
+
+export {lookup as default, additionalInfo};
