@@ -17,14 +17,20 @@ class Trace extends Component {
     super(props);
     this.state = { selected: null };
     this.updateSelected = this.updateSelected.bind(this);
+    this.updateFindOutMoreSelected = this.updateFindOutMoreSelected.bind(this);
   }
 
   updateSelected(trace){
-    this.setState({selected: trace})
+    this.setState({selected: trace, selectedFindOutMore: null})
+  }
+
+  updateFindOutMoreSelected(trace){
+    this.setState({selected: null, selectedFindOutMore: trace})
   }
 
   render() {
     const selected = this.state.selected;
+    const selectedFindOutMore = this.state.selectedFindOutMore;
     var metadata, code_url;
     if (selected) {
       metadata = lookup(selected.type);
@@ -37,21 +43,25 @@ class Trace extends Component {
     return (
       <>
         <Info/>
-        <svg class="trace" width="10000" height="900">
+        <svg className="trace" width="10000" height="900">
           {notSelectedLines.map((traceLine, i) =>
             <Method
               key={traceLine.x}
               updateSelected={this.updateSelected}
               traceLine={traceLine}
               selected={false}
+              updateFindOutMoreSelected={this.updateFindOutMoreSelected}
+              findOutMoreSelected={(selectedFindOutMore && selectedFindOutMore.x) == traceLine.x}
             />
           )}
           {selectedLines.map((traceLine, i) =>
             <Method
               key={traceLine.x}
               updateSelected={this.updateSelected}
+              updateFindOutMoreSelected={this.updateFindOutMoreSelected}
               traceLine={traceLine}
               selected={true}
+              findOutMoreSelected={(selectedFindOutMore && selectedFindOutMore.x) == traceLine.x}
             />
           )}
         </svg>

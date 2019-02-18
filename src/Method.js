@@ -6,15 +6,21 @@ class Method extends Component {
   constructor(props) {
     super(props)
     this.onClick = this.onClick.bind(this);
+    this.onFindOutMore = this.onFindOutMore.bind(this);
     this.metadata = lookup(props.traceLine.type);
+    this.state = {}
   }
 
   onClick() {
     this.props.updateSelected(this.props.traceLine)
   }
 
+  onFindOutMore() {
+    this.props.updateFindOutMoreSelected(this.props.traceLine)
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.selected !== nextProps.selected
+    return (this.props.selected !== nextProps.selected) || (this.props.findOutMoreSelected !== nextProps.findOutMoreSelected)
   }
 
   render() {
@@ -45,20 +51,26 @@ class Method extends Component {
               y2={y + 200}
               stroke="#444"
             />
-            <circle
-              cx={x}
-              cy={y + 200}
-              r="20"
-              fill="#444"
-            />
-            <text
-              x={x - 8}
-              y={y + 210}
-              font-size="30"
-              font-weight="bold"
-              fill="#FFF">
-              ?
-            </text>
+            <g className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`} onClick={this.onFindOutMore}>
+              <circle className='bubble'
+                cx={x}
+                cy={y + 200}
+                r="20"
+              />
+              <circle className='button'
+                cx={x}
+                cy={y + 200}
+                r="20"
+              />
+              <text
+                x={x - 8}
+                y={y + 210}
+                fontSize="30"
+                fontWeight="bold"
+                fill="#FFF">
+                ?
+              </text>
+            </g>
           </>
         }
       </>

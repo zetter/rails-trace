@@ -27,3 +27,44 @@
     stroke-width: 3px;
   }
 }
+
+@keyframes select-find-out-more-bubble {
+  0% {
+    opacity: 0.5;
+    r: 20px;
+  }
+  100% {
+    opacity: 0;
+    r: 40px;
+  }
+}
+
+@keyframes select-find-out-more-button {
+  0% {
+    fill: #7D4CDB;
+  }
+  100% {
+    fill: #444;
+  }
+}
+
+.find-out-more {
+  cursor: pointer;
+}
+
+
+.find-out-more .bubble {
+  fill: #444;
+}
+
+.find-out-more .button {
+  fill: #7D4CDB;
+}
+
+.find-out-more.selected .bubble{
+  animation: 0.5s select-find-out-more-bubble ease-in-out forwards;
+}
+
+.find-out-more.selected .button{
+  animation: 0.5s select-find-out-more-button ease-in-out forwards;
+}
