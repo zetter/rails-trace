@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import Method from './Method'
 import Info from './Info'
+import MethodInfo from './MethodInfo'
+import FindOutMore from './FindOutMore'
 
 import {
-  Box,
-  Layer,
-  Heading,
-  Paragraph
+  Layer
 } from "grommet";
 
 import './Trace.css'
-import lookup from './Metadata'
+import './InfoBox.css'
 
 class Trace extends Component {
   constructor(props) {
@@ -31,15 +30,19 @@ class Trace extends Component {
   render() {
     const selected = this.state.selected;
     const selectedFindOutMore = this.state.selectedFindOutMore;
-    var metadata, code_url;
-    if (selected) {
-      metadata = lookup(selected.type);
-      code_url = `${metadata.path}${selected.path}#L${selected.line_start}`;
-    }
+    var infoBoxContents;
 
     const notSelectedLines = this.props.trace.filter(traceLine => traceLine !== selected);
     const selectedLines = this.props.trace.filter(traceLine => traceLine === selected);
     const lines = notSelectedLines.concat(selectedLines);
+
+    if (selected) {
+      infoBoxContents = <MethodInfo selected={selected} />;
+    } else if (selectedFindOutMore) {
+      infoBoxContents = <FindOutMore selected={selectedFindOutMore} />;
+    } else {
+      infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
+    }
 
     return (
       <>
@@ -57,31 +60,10 @@ class Trace extends Component {
           )}
         </svg>
         <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
-          {selected && <>
-              <Heading level="2" className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</Heading>
-              <table className="info-table">
-                <thead>
-                  <tr>
-                    <th>Class / Module</th>
-                    <th>Method</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>{selected.class}</code></td>
-                    <td><code>{selected.method_prefix}{selected.method}</code></td>
-                  </tr>
-                </tbody>
-              </table>
-              <Paragraph margin={{bottom: 'none'}}>🔎<a href={code_url}>{selected.path}:{selected.line_start}</a></Paragraph>
-            </>
-          }
-          {!selected &&
-            <p>Select a bar above to find out the method it represents</p>
-          }
+          {infoBoxContents}
         </Layer>
       </>
-    );
+    )
   }
 }
 

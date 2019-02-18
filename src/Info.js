@@ -11,7 +11,6 @@ import {
 
 import './Info.css'
 
-
 class Info extends React.Component {
   state = { open: true };
 
