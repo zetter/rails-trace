@@ -19,11 +19,15 @@ function lookup(type) {
  }[type] || {name: "Other", colour:"#fdb462"}
 }
 
-function additionalInfo(klass, method) {
+function additionalInfoSlug(klass, method) {
   return {
-    'Puma::Server/process_client': true,
-    'Rack::Sendfile/call': true,
+    'Puma::Server/process_client': 'responding-to-requests',
+    'Rack::Sendfile/call': 'rack-middlewares',
+    'ActionDispatch::Routing::RouteSet/call': 'routing',
+    'PostsController/set_post': 'our-application',
+    'SQLite3::Statement/each': 'sqlite-database',
+    'ActiveRecord::Core::ClassMethods/find': 'the-model-layer'
   }[`${klass}/${method}`]
 }
 
-export {lookup as default, additionalInfo};
+export {lookup as default, additionalInfoSlug};

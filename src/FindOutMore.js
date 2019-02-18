@@ -17,9 +17,7 @@ class FindOutMore extends React.Component {
   }
 
   contentURL() {
-    const selected = this.props.selected;
-    const key = `${selected.class}-${selected.method}`.toLowerCase().replace(/[^a-z_-]/g, "-");
-    return `/find-out-more/${key}.md`
+    return `/find-out-more/${this.props.slug}.md`
   }
 
   render() {

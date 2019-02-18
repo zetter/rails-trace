@@ -23,8 +23,8 @@ class Trace extends Component {
     this.setState({selected: trace, selectedFindOutMore: null})
   }
 
-  updateFindOutMoreSelected(trace){
-    this.setState({selected: null, selectedFindOutMore: trace})
+  updateFindOutMoreSelected(trace, slug){
+    this.setState({selected: null, selectedFindOutMore: trace, findOutMoreSlug: slug})
   }
 
   render() {
@@ -39,7 +39,7 @@ class Trace extends Component {
     if (selected) {
       infoBoxContents = <MethodInfo selected={selected} />;
     } else if (selectedFindOutMore) {
-      infoBoxContents = <FindOutMore key={selectedFindOutMore.x} selected={selectedFindOutMore} />;
+      infoBoxContents = <FindOutMore slug={this.state.findOutMoreSlug} key={this.state.findOutMoreSlug} selected={selectedFindOutMore} />;
     } else {
       infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
     }
