@@ -2,6 +2,13 @@
   stroke: #000;
   stroke-opacity: 0.2;
   stroke-width: 1px;
+  cursor: pointer;
+}
+
+.method:hover {
+  stroke: #000;
+  stroke-opacity: 1;
+  stroke-width: 1px;
 }
 
 .method.selected {
@@ -12,7 +19,7 @@
 
 @keyframes select {
   0% {
-    stroke-opacity: 0.2;
+    stroke-opacity: 1;
     stroke-width: 1px;
   }
   100% {
