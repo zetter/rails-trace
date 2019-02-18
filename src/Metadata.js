@@ -26,7 +26,12 @@ function additionalInfoSlug(klass, method) {
     'ActionDispatch::Routing::RouteSet/call': 'routing',
     'PostsController/set_post': 'our-application',
     'SQLite3::Statement/each': 'sqlite-database',
-    'ActiveRecord::Core::ClassMethods/find': 'the-model-layer'
+    'ActiveRecord::Core::ClassMethods/find': 'the-model-layer',
+    'PostsController/show': 'controller-action',
+    'ActionController::Rendering/render': 'rendering',
+    'ActionView::CompiledTemplates/_app_views_posts_show_html_erb___319784893945399008_70149931330880': 'our-template',
+    'Puma::Server/cork_socket': 'sending-the-response',
+    'ActionDispatch::Routing::RouteSet::Dispatcher/dispatch': 'metal'
   }[`${klass}/${method}`]
 }
 
