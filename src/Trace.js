@@ -39,7 +39,7 @@ class Trace extends Component {
     if (selected) {
       infoBoxContents = <MethodInfo selected={selected} />;
     } else if (selectedFindOutMore) {
-      infoBoxContents = <FindOutMore selected={selectedFindOutMore} />;
+      infoBoxContents = <FindOutMore key={selectedFindOutMore.x} selected={selectedFindOutMore} />;
     } else {
       infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
     }
