@@ -37,31 +37,22 @@ class Trace extends Component {
       code_url = `${metadata.path}${selected.path}#L${selected.line_start}`;
     }
 
-    const notSelectedLines = this.props.trace.filter(traceLine => traceLine.x !== (selected && selected.x));
-    const selectedLines = this.props.trace.filter(traceLine => traceLine.x === (selected && selected.x));
+    const notSelectedLines = this.props.trace.filter(traceLine => traceLine !== selected);
+    const selectedLines = this.props.trace.filter(traceLine => traceLine === selected);
+    const lines = notSelectedLines.concat(selectedLines);
 
     return (
       <>
         <Info/>
         <svg className="trace" width="10000" height="900">
-          {notSelectedLines.map((traceLine, i) =>
+          {lines.map((traceLine, i) =>
             <Method
               key={traceLine.x}
               updateSelected={this.updateSelected}
               traceLine={traceLine}
-              selected={false}
+              selected={traceLine === selected}
               updateFindOutMoreSelected={this.updateFindOutMoreSelected}
-              findOutMoreSelected={(selectedFindOutMore && selectedFindOutMore.x) == traceLine.x}
-            />
-          )}
-          {selectedLines.map((traceLine, i) =>
-            <Method
-              key={traceLine.x}
-              updateSelected={this.updateSelected}
-              updateFindOutMoreSelected={this.updateFindOutMoreSelected}
-              traceLine={traceLine}
-              selected={true}
-              findOutMoreSelected={(selectedFindOutMore && selectedFindOutMore.x) == traceLine.x}
+              findOutMoreSelected={selectedFindOutMore === traceLine}
             />
           )}
         </svg>
