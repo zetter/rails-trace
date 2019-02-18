@@ -21,7 +21,8 @@ function lookup(type) {
 
 function additionalInfo(klass, method) {
   return {
-    'Puma::Server/process_client': 'Stuff'
+    'Puma::Server/process_client': true,
+    'Rack::Sendfile/call': true,
   }[`${klass}/${method}`]
 }
 
