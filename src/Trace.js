@@ -14,13 +14,11 @@ import './InfoBox.css'
 class Trace extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: null };
-    this.updateSelected = this.updateSelected.bind(this);
-    this.updateFindOutMoreSelected = this.updateFindOutMoreSelected.bind(this);
-  }
+    var selected = null;
 
-  updateSelected(trace){
-    this.setState({selected: trace, selectedFindOutMore: null})
+
+    this.state = { selected: selected };
+    this.updateFindOutMoreSelected = this.updateFindOutMoreSelected.bind(this);
   }
 
   updateFindOutMoreSelected(trace, slug){
@@ -28,7 +26,11 @@ class Trace extends Component {
   }
 
   render() {
-    const selected = this.state.selected;
+    var selected = null;
+    if (this.props.mode == 'method') {
+      selected = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
+    }
+
     const selectedFindOutMore = this.state.selectedFindOutMore;
     var infoBoxContents;
 
@@ -51,7 +53,6 @@ class Trace extends Component {
           {lines.map((traceLine, i) =>
             <Method
               key={traceLine.x}
-              updateSelected={this.updateSelected}
               traceLine={traceLine}
               selected={traceLine === selected}
               updateFindOutMoreSelected={this.updateFindOutMoreSelected}

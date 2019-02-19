@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import lookup, { additionalInfoSlug } from './Metadata'
 import './Method.css'
+import { Link } from "react-router-dom";
 
 class Method extends Component {
   constructor(props) {
     super(props)
-    this.onClick = this.onClick.bind(this);
     this.onFindOutMore = this.onFindOutMore.bind(this);
     this.metadata = lookup(props.traceLine.type);
     this.state = {}
-  }
-
-  onClick() {
-    this.props.updateSelected(this.props.traceLine)
   }
 
   onFindOutMore() {
@@ -35,15 +31,16 @@ class Method extends Component {
 
     return (
       <>
-        <rect
-          onClick={this.onClick}
-          x={x}
-          y={y}
-          width={traceLine.width}
-          height="7"
-          className={`method ${selected ? 'selected' : ''}`}
-          fill={this.metadata.colour}
-        />
+        <Link to={`/method/${traceLine.x}`}>
+          <rect
+            x={x}
+            y={y}
+            width={traceLine.width}
+            height="7"
+            className={`method ${selected ? 'selected' : ''}`}
+            fill={this.metadata.colour}
+          />
+        </Link>
         {info &&
           <>
             <line
