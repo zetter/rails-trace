@@ -27,11 +27,7 @@ class App extends Component {
         <Grommet plain className="container">
           <Route exact
             path="/"
-            render={({match}) => <Trace trace={trace} mode="about" slug='about' />}
-          />
-          <Route exact
-            path="/about/:slug"
-            render={({match}) => <Trace trace={trace} mode="about" slug={match.params.slug} />}
+            render={({match}) => <Trace trace={trace} />}
           />
           <Route exact
             path="/method/:slug"
