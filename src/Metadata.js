@@ -19,20 +19,27 @@ function lookup(type) {
  }[type] || {name: "Other", colour:"#fdb462"}
 }
 
-function additionalInfoSlug(klass, method) {
-  return {
-    'Puma::Server/process_client': 'responding-to-requests',
-    'Rack::Sendfile/call': 'rack-middlewares',
-    'ActionDispatch::Routing::RouteSet/call': 'routing',
-    'PostsController/set_post': 'our-application',
-    'SQLite3::Statement/each': 'sqlite-database',
-    'ActiveRecord::Core::ClassMethods/find': 'the-model-layer',
-    'PostsController/show': 'controller-action',
-    'ActionController::Rendering/render': 'rendering',
-    'ActionView::CompiledTemplates/_app_views_posts_show_html_erb___319784893945399008_70149931330880': 'our-template',
-    'Puma::Server/cork_socket': 'sending-the-response',
-    'ActionDispatch::Routing::RouteSet::Dispatcher/dispatch': 'metal'
-  }[`${klass}/${method}`]
+const additionalInfoMapping = {
+  '3-Puma::Server-process_client': 'responding-to-requests',
+  '103-Rack::Sendfile-call': 'rack-middlewares',
+  '714-ActionDispatch::Routing::RouteSet-call': 'routing',
+  '1200-ActionDispatch::Routing::RouteSet::Dispatcher-dispatch': 'metal',
+  '2429-PostsController-set_post': 'our-application',
+  '3104-SQLite3::Statement-each': 'sqlite-database',
+  '2496-ActiveRecord::Core::ClassMethods-find': 'the-model-layer',
+  '3664-PostsController-show': 'controller-action',
+  '3904-ActionController::Rendering-render': 'rendering',
+  '4435-ActionView::CompiledTemplates-_app_views_posts_show_html_erb___319784893945399008_70149931330880': 'our-template',
+  '5666-Puma::Server-fast_write': 'sending-the-response'
 }
 
-export {lookup as default, additionalInfoSlug};
+function additionalInfoSlugForMethod(methodKey) {
+  return additionalInfoMapping[methodKey]
+}
+
+function methodForadditionalInfoSlug(lookupSlug) {
+  const [method, _] = (Object.entries(additionalInfoMapping).find(([_, slug]) => slug === lookupSlug) || []);
+  return method;
+}
+
+export {lookup as default, additionalInfoSlugForMethod, methodForadditionalInfoSlug};

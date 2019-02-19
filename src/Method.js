@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import lookup, { additionalInfoSlug } from './Metadata'
+import lookup, { additionalInfoSlugForMethod } from './Metadata'
 import './Method.css'
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ class Method extends Component {
     const method = this.props.method;
     const selected = this.props.selected;
 
-    const info = additionalInfoSlug(method.class, method.method)
+    const infoSlug = additionalInfoSlugForMethod(method.key)
     const x = method.x + 40
     const y = method.y * 7
 
@@ -34,7 +34,7 @@ class Method extends Component {
             fill={this.metadata.colour}
           />
         </Link>
-        {info &&
+        {infoSlug &&
           <>
             <line
               x1={x}
@@ -43,7 +43,7 @@ class Method extends Component {
               y2={y + 120}
               stroke="#444"
             />
-            <Link to={`/find-out-more/${method.key}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
+            <Link to={`/find-out-more/${infoSlug}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
               <circle className='bubble'
                 cx={x}
                 cy={y + 120}
