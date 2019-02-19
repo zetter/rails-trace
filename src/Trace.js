@@ -17,7 +17,17 @@ class Trace extends Component {
     super(props);
   }
 
-  methodsWithSelectedLast(selected) {
+  selectedMethod() {
+    return this.props.trace.find(method => method.key === this.props.slug);
+  }
+
+  selectedFindOutMoreMethod() {
+    const selectedFindOutMoreMethodKey = methodForadditionalInfoSlug(this.props.slug)
+    return this.props.trace.find(method => method.key === selectedFindOutMoreMethodKey);
+  }
+
+  methodsWithSelectedLast() {
+    const selected = this.selectedMethod();
     if (selected) {
       const notSelectedLines = this.props.trace.filter(method => method !== selected);
       return notSelectedLines.concat([selected]);
@@ -27,14 +37,13 @@ class Trace extends Component {
   }
 
   render() {
-    var infoBoxContents, selected, selectedFindOutMoreMethod;
+    const selectedMethod = this.selectedMethod();
+    const selectedFindOutMoreMethod = this.selectedFindOutMoreMethod();
+    var infoBoxContents;
 
     if (this.props.mode === 'method') {
-      selected = this.props.trace.find(method => method.key === this.props.slug);
-      infoBoxContents = <MethodInfo selected={selected} />;
+      infoBoxContents = <MethodInfo selected={selectedMethod} />;
     } else if (this.props.mode === 'find-out-more') {
-      const selectedFindOutMoreMethodKey = methodForadditionalInfoSlug(this.props.slug)
-      selectedFindOutMoreMethod = this.props.trace.find(method => method.key === selectedFindOutMoreMethodKey);
       infoBoxContents = <FindOutMore slug={this.props.slug} key={this.props.slug} selected={selectedFindOutMoreMethod} />;
     } else {
       infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
@@ -44,11 +53,11 @@ class Trace extends Component {
       <>
         <Info/>
         <svg className="trace" width="10000" height="900">
-          {this.methodsWithSelectedLast(selected).map((method, i) =>
+          {this.methodsWithSelectedLast().map((method, i) =>
             <Method
               key={method.key}
               method={method}
-              selected={method === selected}
+              selected={method === selectedMethod}
               findOutMoreSelected={method === selectedFindOutMoreMethod}
             />
           )}
