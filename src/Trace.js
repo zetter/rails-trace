@@ -17,6 +17,15 @@ class Trace extends Component {
     super(props);
   }
 
+  methodsWithSelectedLast(selected) {
+    if (selected) {
+      const notSelectedLines = this.props.trace.filter(method => method !== selected);
+      return notSelectedLines.concat([selected]);
+    } else {
+      return this.props.trace;
+    }
+  }
+
   render() {
     var infoBoxContents, selected, selectedFindOutMoreMethod;
 
@@ -31,15 +40,11 @@ class Trace extends Component {
       infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
     }
 
-    const notSelectedLines = this.props.trace.filter(method => method !== selected);
-    const selectedLines = this.props.trace.filter(method => method === selected);
-    const lines = notSelectedLines.concat(selectedLines);
-
     return (
       <>
         <Info/>
         <svg className="trace" width="10000" height="900">
-          {lines.map((method, i) =>
+          {this.methodsWithSelectedLast(selected).map((method, i) =>
             <Method
               key={method.key}
               method={method}
