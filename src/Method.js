@@ -24,7 +24,7 @@ class Method extends Component {
 
     return (
       <>
-        <Link to={`/method/${method.x}`}>
+        <Link to={`/method/${method.key}`}>
           <rect
             x={x}
             y={y}
@@ -43,7 +43,7 @@ class Method extends Component {
               y2={y + 120}
               stroke="#444"
             />
-            <Link to={`/find-out-more/${method.x}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
+            <Link to={`/find-out-more/${method.key}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
               <circle className='bubble'
                 cx={x}
                 cy={y + 120}

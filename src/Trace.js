@@ -20,8 +20,8 @@ class Trace extends Component {
 
   render() {
     var infoBoxContents;
-    const selected = this.props.trace.find(method => String(method.x) === this.props.slug);
-    const selectedFindOutMore = this.props.trace.find(method => String(method.x) === this.props.slug);
+    const selected = this.props.trace.find(method => method.key === this.props.slug);
+    const selectedFindOutMore = this.props.trace.find(method => method.key === this.props.slug);
 
     if (this.props.mode === 'method') {
       infoBoxContents = <MethodInfo selected={selected} />;
@@ -42,7 +42,7 @@ class Trace extends Component {
         <svg className="trace" width="10000" height="900">
           {lines.map((method, i) =>
             <Method
-              key={method.x}
+              key={method.key}
               method={method}
               selected={method === selected}
               findOutMoreSelected={selectedFindOutMore === method}
