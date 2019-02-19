@@ -6,15 +6,8 @@ import { Link } from "react-router-dom";
 class Method extends Component {
   constructor(props) {
     super(props)
-    this.onFindOutMore = this.onFindOutMore.bind(this);
     this.metadata = lookup(props.traceLine.type);
     this.state = {}
-  }
-
-  onFindOutMore() {
-    const traceLine = this.props.traceLine;
-    const slug = additionalInfoSlug(traceLine.class, traceLine.method)
-    this.props.updateFindOutMoreSelected(traceLine, slug)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -50,7 +43,7 @@ class Method extends Component {
               y2={y + 120}
               stroke="#444"
             />
-            <g className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`} onClick={this.onFindOutMore}>
+            <Link to={`/find-out-more/${traceLine.x}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
               <circle className='bubble'
                 cx={x}
                 cy={y + 120}
@@ -69,7 +62,7 @@ class Method extends Component {
                 fill="#FFF">
                 ?
               </text>
-            </g>
+            </Link>
           </>
         }
       </>

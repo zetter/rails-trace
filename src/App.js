@@ -18,6 +18,10 @@ class App extends Component {
   render() {
     const trace = this.state.trace;
 
+    if (this.state.trace.length === 0) {
+      return <h1>Loading</h1>;
+    }
+
     return (
       <Router>
         <Grommet plain className="container">

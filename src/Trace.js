@@ -3,6 +3,7 @@ import Method from './Method'
 import Info from './Info'
 import MethodInfo from './MethodInfo'
 import FindOutMore from './FindOutMore'
+import { additionalInfoSlug } from './Metadata'
 
 import {
   Layer
@@ -14,37 +15,26 @@ import './InfoBox.css'
 class Trace extends Component {
   constructor(props) {
     super(props);
-    var selected = null;
-
-
-    this.state = { selected: selected };
-    this.updateFindOutMoreSelected = this.updateFindOutMoreSelected.bind(this);
   }
 
-  updateFindOutMoreSelected(trace, slug){
-    this.setState({selected: null, selectedFindOutMore: trace, findOutMoreSlug: slug})
-  }
 
   render() {
-    var selected = null;
-    if (this.props.mode == 'method') {
-      selected = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
-    }
-
-    const selectedFindOutMore = this.state.selectedFindOutMore;
     var infoBoxContents;
+    const selected = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
+    const selectedFindOutMore = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
+
+    if (this.props.mode === 'method') {
+      infoBoxContents = <MethodInfo selected={selected} />;
+    } else if (this.props.mode === 'find-out-more') {
+      const findOutMoreSlug = additionalInfoSlug(selectedFindOutMore.class, selectedFindOutMore.method)
+      infoBoxContents = <FindOutMore slug={findOutMoreSlug} key={findOutMoreSlug} selected={selectedFindOutMore} />;
+    } else {
+      infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
+    }
 
     const notSelectedLines = this.props.trace.filter(traceLine => traceLine !== selected);
     const selectedLines = this.props.trace.filter(traceLine => traceLine === selected);
     const lines = notSelectedLines.concat(selectedLines);
-
-    if (selected) {
-      infoBoxContents = <MethodInfo selected={selected} />;
-    } else if (selectedFindOutMore) {
-      infoBoxContents = <FindOutMore slug={this.state.findOutMoreSlug} key={this.state.findOutMoreSlug} selected={selectedFindOutMore} />;
-    } else {
-      infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
-    }
 
     return (
       <>
@@ -55,7 +45,6 @@ class Trace extends Component {
               key={traceLine.x}
               traceLine={traceLine}
               selected={traceLine === selected}
-              updateFindOutMoreSelected={this.updateFindOutMoreSelected}
               findOutMoreSelected={selectedFindOutMore === traceLine}
             />
           )}
