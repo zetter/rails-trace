@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 class Method extends Component {
   constructor(props) {
     super(props)
-    this.metadata = lookup(props.traceLine.type);
+    this.metadata = lookup(props.method.type);
     this.state = {}
   }
 
@@ -15,20 +15,20 @@ class Method extends Component {
   }
 
   render() {
-    const traceLine = this.props.traceLine;
+    const method = this.props.method;
     const selected = this.props.selected;
 
-    const info = additionalInfoSlug(traceLine.class, traceLine.method)
-    const x = traceLine.x + 40
-    const y = traceLine.y * 7
+    const info = additionalInfoSlug(method.class, method.method)
+    const x = method.x + 40
+    const y = method.y * 7
 
     return (
       <>
-        <Link to={`/method/${traceLine.x}`}>
+        <Link to={`/method/${method.x}`}>
           <rect
             x={x}
             y={y}
-            width={traceLine.width}
+            width={method.width}
             height="7"
             className={`method ${selected ? 'selected' : ''}`}
             fill={this.metadata.colour}
@@ -43,7 +43,7 @@ class Method extends Component {
               y2={y + 120}
               stroke="#444"
             />
-            <Link to={`/find-out-more/${traceLine.x}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
+            <Link to={`/find-out-more/${method.x}`} className={`find-out-more ${this.props.findOutMoreSelected ? 'selected' : ''}`}>
               <circle className='bubble'
                 cx={x}
                 cy={y + 120}

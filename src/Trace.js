@@ -20,8 +20,8 @@ class Trace extends Component {
 
   render() {
     var infoBoxContents;
-    const selected = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
-    const selectedFindOutMore = this.props.trace.find(traceLine => String(traceLine.x) === this.props.slug);
+    const selected = this.props.trace.find(method => String(method.x) === this.props.slug);
+    const selectedFindOutMore = this.props.trace.find(method => String(method.x) === this.props.slug);
 
     if (this.props.mode === 'method') {
       infoBoxContents = <MethodInfo selected={selected} />;
@@ -32,20 +32,20 @@ class Trace extends Component {
       infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
     }
 
-    const notSelectedLines = this.props.trace.filter(traceLine => traceLine !== selected);
-    const selectedLines = this.props.trace.filter(traceLine => traceLine === selected);
+    const notSelectedLines = this.props.trace.filter(method => method !== selected);
+    const selectedLines = this.props.trace.filter(method => method === selected);
     const lines = notSelectedLines.concat(selectedLines);
 
     return (
       <>
         <Info/>
         <svg className="trace" width="10000" height="900">
-          {lines.map((traceLine, i) =>
+          {lines.map((method, i) =>
             <Method
-              key={traceLine.x}
-              traceLine={traceLine}
-              selected={traceLine === selected}
-              findOutMoreSelected={selectedFindOutMore === traceLine}
+              key={method.x}
+              method={method}
+              selected={method === selected}
+              findOutMoreSelected={selectedFindOutMore === method}
             />
           )}
         </svg>
