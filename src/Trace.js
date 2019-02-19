@@ -19,13 +19,13 @@ class Trace extends Component {
 
 
   render() {
-    var infoBoxContents;
-    const selected = this.props.trace.find(method => method.key === this.props.slug);
-    const selectedFindOutMore = this.props.trace.find(method => method.key === this.props.slug);
+    var infoBoxContents, selected, selectedFindOutMore;
 
     if (this.props.mode === 'method') {
+      selected = this.props.trace.find(method => method.key === this.props.slug);
       infoBoxContents = <MethodInfo selected={selected} />;
     } else if (this.props.mode === 'find-out-more') {
+      selectedFindOutMore = this.props.trace.find(method => method.key === this.props.slug);
       const findOutMoreSlug = additionalInfoSlug(selectedFindOutMore.class, selectedFindOutMore.method)
       infoBoxContents = <FindOutMore slug={findOutMoreSlug} key={findOutMoreSlug} selected={selectedFindOutMore} />;
     } else {
