@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Method from './Method'
 import Info from './Info'
 import MethodInfo from './MethodInfo'
 import FindOutMore from './FindOutMore'
-import { additionalInfoSlugForMethod, methodForadditionalInfoSlug } from './Metadata'
+import { methodForadditionalInfoSlug } from './Metadata'
 
 import {
   Layer
@@ -12,10 +12,7 @@ import {
 import './Trace.css'
 import './InfoBox.css'
 
-class Trace extends Component {
-  constructor(props) {
-    super(props);
-  }
+class Trace extends React.Component {
 
   selectedMethod() {
     return this.props.trace.find(method => method.key === this.props.slug);

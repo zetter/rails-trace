@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Box,
   Tab,
   Tabs,
-  Layer,
   Heading,
-  Paragraph,
-  Button
+  Paragraph
 } from "grommet";
 
 import './Info.css'

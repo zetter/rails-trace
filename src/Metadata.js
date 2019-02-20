@@ -38,7 +38,7 @@ function additionalInfoSlugForMethod(methodKey) {
 }
 
 function methodForadditionalInfoSlug(lookupSlug) {
-  const [method, _] = (Object.entries(additionalInfoMapping).find(([_, slug]) => slug === lookupSlug) || []);
+  const [method] = (Object.entries(additionalInfoMapping).find(([_, slug]) => slug === lookupSlug) || []);
   return method;
 }
 
