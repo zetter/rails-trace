@@ -13,7 +13,7 @@ function lookup(type) {
    "gem/sqlite3": {name: "sqlite3", colour:"#a65628", path: 'https://github.com/sparklemotion/sqlite3-ruby/blob/v1.3.13/'},
    "gem/activemodel": {name: "Active Model", colour:"#f781bf", path: 'https://github.com/rails/rails/blob/v5.2.2/activemodel/'},
    "gem/sprockets": {name: "Sprockets", colour:"#8dd3c7", path: 'https://github.com/rails/sprockets/blob/v3.7.2/'},
-   "application": {name: "Blog Application", colour:"#444"},
+   "application": {name: "Blog Application", colour:"#444", path: 'https://github.com/zetter/example-blog/blob/v1.0/'},
    "standard_library": {name: "Ruby Standard Libary", colour:"#fb8072", path: 'https://github.com/ruby/ruby/tree/v2_6_0/lib/'},
    "gem/turbolinks": {name: "Turbolinks", colour:"#80b1d3", path: 'https://github.com/turbolinks/turbolinks-rails/blob/v5.2.0/'}
  }[type] || {name: "Other", colour:"#fdb462"}
