@@ -1,8 +1,11 @@
 import React from 'react';
 import {
   Heading,
-  Paragraph
+  Paragraph,
+  Anchor,
+  Text
 } from "grommet";
+import { DocumentText } from 'grommet-icons';
 
 import lookup from './Metadata'
 
@@ -11,24 +14,27 @@ class MethodInfo extends React.Component {
     const selected = this.props.selected;
     const metadata = lookup(selected.type);
     const codeUrl = `${metadata.path}${selected.path}#L${selected.line_start}`;
+    const codePath = `${selected.path}:${selected.line_start}`;
 
     return <>
       <Heading level="2" className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</Heading>
       <table className="info-table">
         <thead>
           <tr>
-            <th>Class / Module</th>
-            <th>Method</th>
+            <th><Text size="xsmall">Class / Module</Text></th>
+            <th><Text size="xsmall">Method</Text></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><code>{selected.class}</code></td>
-            <td><code>{selected.method_prefix}{selected.method}</code></td>
+            <td><Text><code>{selected.class}</code></Text></td>
+            <td><Text><code>{selected.method_prefix}{selected.method}</code></Text></td>
           </tr>
         </tbody>
       </table>
-      <Paragraph margin={{bottom: 'none'}}>🔎<a href={codeUrl}>{selected.path}:{selected.line_start}</a></Paragraph>
+      <Paragraph margin={{bottom: 'none'}}>
+        <Anchor icon={<DocumentText size="22px"/>} size="small" href={codeUrl} label={codePath} />
+      </Paragraph>
     </>
   }
 }

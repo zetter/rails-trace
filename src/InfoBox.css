@@ -25,9 +25,8 @@
 }
 
 .info-box .name {
-  margin-top: 0px;
   padding-bottom: 6px;
-  margin-bottom: 0.9em;
+  margin-bottom: 0.8em;
 }
 
 .info-box .info-table {
@@ -37,7 +36,6 @@
 }
 
 .info-box .info-table th {
-  font-size: 0.7em;
   text-transform: uppercase;
 }
 
