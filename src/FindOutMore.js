@@ -4,8 +4,6 @@ import {
   Box
 } from "grommet";
 
-import './Info.css'
-
 class FindOutMore extends React.Component {
   state = {};
 

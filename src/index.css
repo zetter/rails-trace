@@ -16,6 +16,8 @@ code {
 
 .container {
   display: flex;
-  overflow-x: auto;
-  flex-wrap: nowrap;
+}
+
+.info {
+  flex: 0 0 auto;
 }

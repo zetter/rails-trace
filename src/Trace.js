@@ -9,7 +9,6 @@ import {
   Layer
 } from "grommet";
 
-import './Trace.css'
 import './InfoBox.css'
 
 class Trace extends React.Component {
@@ -49,16 +48,18 @@ class Trace extends React.Component {
     return (
       <>
         <Info/>
-        <svg className="trace" width="10000" height="900">
-          {this.methodsWithSelectedLast().map((method, i) =>
-            <Method
-              key={method.key}
-              method={method}
-              selected={method === selectedMethod}
-              findOutMoreSelected={method === selectedFindOutMoreMethod}
-            />
-          )}
-        </svg>
+        <div class="trace">
+          <svg width="6200" height="640">
+            {this.methodsWithSelectedLast().map((method, i) =>
+              <Method
+                key={method.key}
+                method={method}
+                selected={method === selectedMethod}
+                findOutMoreSelected={method === selectedFindOutMoreMethod}
+              />
+            )}
+          </svg>
+        </div>
         <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
           {infoBoxContents}
         </Layer>
