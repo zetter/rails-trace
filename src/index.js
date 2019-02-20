@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const rootElement = document.getElementById("root");
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+
+fetch('/trace.json')
+  .then(response => response.json())
+  .then(data => {
+    const rootElement = document.getElementById("root");
+    if (rootElement.hasChildNodes()) {
+      hydrate(<App trace={data}/>, rootElement);
+    } else {
+      render(<App trace={data}/>, rootElement);
+    }
+  });
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
