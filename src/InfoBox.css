@@ -37,8 +37,9 @@
 
 .info-box .close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  padding: 5px;
+  top: 15px;
+  right: 15px;
 }
 
 @media only screen and (max-width: 700px) {
