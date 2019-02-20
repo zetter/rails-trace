@@ -7,7 +7,7 @@ import { methodForadditionalInfoSlug } from './Metadata'
 import { Link } from "react-router-dom";
 import { Close } from 'grommet-icons'
 import {
-  Layer
+  Box
 } from "grommet";
 
 import './InfoBox.css'
@@ -60,10 +60,10 @@ class Trace extends React.Component {
           </svg>
         </div>
         {infoBoxContents && (
-          <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
+          <Box className="info-box">
             <Link title="Close" to="/" className="close"><Close size="20px"/></Link>
             {infoBoxContents}
-          </Layer>
+          </Box>
         )}
       </>
     )
