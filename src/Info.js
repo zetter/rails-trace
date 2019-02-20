@@ -8,11 +8,6 @@ import {
 } from "grommet";
 
 class Info extends React.Component {
-  state = { open: true };
-
-  onClose = () => {
-    this.setState({ open: false });
-  };
 
   render() {
     return <Box pad="medium" className="info">
