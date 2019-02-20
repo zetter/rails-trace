@@ -1,6 +1,5 @@
 import React from 'react';
 import Method from './Method'
-import Info from './Info'
 import MethodInfo from './MethodInfo'
 import FindOutMore from './FindOutMore'
 import { methodForadditionalInfoSlug } from './Metadata'
@@ -46,7 +45,6 @@ class Trace extends React.Component {
 
     return (
       <>
-        <Info/>
         <div className="trace">
           <svg width="6200" height="640">
             {this.methodsWithSelectedLast().map((method, i) =>

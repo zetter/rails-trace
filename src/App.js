@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grommet } from 'grommet';
 import Trace from './Trace';
+import Info from './Info'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <Router>
         <Grommet plain className="container">
+          <Info/>
           <Route exact
             path="/"
             render={({match}) => <Trace trace={trace} />}
