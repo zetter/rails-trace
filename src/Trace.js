@@ -47,7 +47,7 @@ class Trace extends React.Component {
     return (
       <>
         <Info/>
-        <div class="trace">
+        <div className="trace">
           <svg width="6200" height="640">
             {this.methodsWithSelectedLast().map((method, i) =>
               <Method
@@ -61,7 +61,7 @@ class Trace extends React.Component {
         </div>
         {infoBoxContents && (
           <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
-            <Link title="Close" to="/" class="close"><Close size="20px"/></Link>
+            <Link title="Close" to="/" className="close"><Close size="20px"/></Link>
             {infoBoxContents}
           </Layer>
         )}
