@@ -6,7 +6,8 @@ import FindOutMore from './FindOutMore'
 import { methodForadditionalInfoSlug } from './Metadata'
 
 import {
-  Layer
+  Layer,
+  Paragraph
 } from "grommet";
 
 import './InfoBox.css'
@@ -42,7 +43,7 @@ class Trace extends React.Component {
     } else if (this.props.mode === 'find-out-more') {
       infoBoxContents = <FindOutMore slug={this.props.slug} key={this.props.slug} selected={selectedFindOutMoreMethod} />;
     } else {
-      infoBoxContents = <p>Select a bar above to find out the method it represents</p>;
+      infoBoxContents = <Paragraph>Select a bar above to find out the method it represents</Paragraph>;
     }
 
     return (

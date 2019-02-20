@@ -3,37 +3,27 @@
   left: 0;
   bottom: 0;
   background-color: #FFF;
-  padding: 20px;
+  padding: 0 20px 5px 20px;
   border-radius: 2px;
   overflow-x: scroll;
   padding-top: 0px;
 }
 
-@media only screen and (max-width: 700px) {
-  .info-box {
-    font-size: 0.9em;
-  }
-
-  .info-box p {
-    font-size: 0.9em;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .info-box {
-    width: 100%
-  }
-}
-
 .info-box .name {
   padding-bottom: 6px;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
+  margin-top: 20px;
+  border-bottom-width: 10px;
+  border-bottom-style: solid;
+}
+
+.info-box h2 {
+  margin-top: 20px;
 }
 
 .info-box .info-table {
   text-align: left;
   border-spacing: 0px;
-  margin-bottom: 0.4em;
 }
 
 .info-box .info-table th {
@@ -43,4 +33,26 @@
 .info-box .info-table th:last-child,
 .info-box .info-table td:last-child {
   padding-left: 20px;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .info-box, .info-box code {
+    font-size: 0.85em;
+  }
+  .info-box p {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info-box {
+    width: 100%
+  }
+  .info-box .name {
+    border-bottom-width: 7px;
+  }
+  .info-box p {
+    font-size: 1.1em;
+  }
 }

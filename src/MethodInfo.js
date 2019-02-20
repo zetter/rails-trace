@@ -17,7 +17,7 @@ class MethodInfo extends React.Component {
     const codePath = `${selected.path}:${selected.line_start}`;
 
     return <>
-      <Heading level="2" className="name" style={{borderBottom: `10px solid ${metadata.colour}`}}>{metadata.name}</Heading>
+      <Heading level="2" className="name" style={{borderBottomColor: `${metadata.colour}`}}>{metadata.name}</Heading>
       <table className="info-table">
         <thead>
           <tr>
