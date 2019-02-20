@@ -4,7 +4,8 @@ import Info from './Info'
 import MethodInfo from './MethodInfo'
 import FindOutMore from './FindOutMore'
 import { methodForadditionalInfoSlug } from './Metadata'
-
+import { Link } from "react-router-dom";
+import { Close } from 'grommet-icons'
 import {
   Layer,
   Paragraph
@@ -59,9 +60,12 @@ class Trace extends React.Component {
             )}
           </svg>
         </div>
-        <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
-          {infoBoxContents}
-        </Layer>
+        {infoBoxContents && (
+          <Layer className="info-box" position="bottom-left" modal={false} responsive={false}>
+            <Link title="Close" to="/" class="close"><Close size="20px"/></Link>
+            {infoBoxContents}
+          </Layer>
+        )}
       </>
     )
   }
