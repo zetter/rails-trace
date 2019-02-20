@@ -42,8 +42,6 @@ class Trace extends React.Component {
       infoBoxContents = <MethodInfo selected={selectedMethod} />;
     } else if (this.props.mode === 'find-out-more') {
       infoBoxContents = <FindOutMore slug={this.props.slug} key={this.props.slug} selected={selectedFindOutMoreMethod} />;
-    } else {
-      infoBoxContents = <Paragraph>Select a bar above to find out the method it represents</Paragraph>;
     }
 
     return (
