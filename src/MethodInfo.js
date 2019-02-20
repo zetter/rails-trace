@@ -28,7 +28,7 @@ class MethodInfo extends React.Component {
         <tbody>
           <tr>
             <td><Text><code>{selected.class}</code></Text></td>
-            <td><Text><code>{selected.method_prefix}{selected.method}</code></Text></td>
+            <td><Text><code>{selected.name}</code></Text></td>
           </tr>
         </tbody>
       </table>
