@@ -7,8 +7,7 @@ import { methodForadditionalInfoSlug } from './Metadata'
 import { Link } from "react-router-dom";
 import { Close } from 'grommet-icons'
 import {
-  Layer,
-  Paragraph
+  Layer
 } from "grommet";
 
 import './InfoBox.css'
