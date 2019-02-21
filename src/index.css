@@ -21,3 +21,7 @@ code {
 .info {
   flex: 0 0 auto;
 }
+
+.trace {
+  margin-left: -130px;
+}

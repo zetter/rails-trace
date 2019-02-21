@@ -8,6 +8,8 @@ import {
   Anchor
 } from "grommet";
 
+import { FastForward } from 'grommet-icons'
+
 import './Info.css'
 
 class Info extends React.Component {
@@ -48,6 +50,10 @@ class Info extends React.Component {
           </Box>
         </Tab>
       </Tabs>
+
+      <div className="scrollToSee">
+        <span>Scroll to see the trace</span><FastForward color="#888"/>
+      </div>
     </Box>
   }
 }

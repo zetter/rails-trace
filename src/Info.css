@@ -1,9 +1,15 @@
 .tabs {
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+.tabs > div {
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .tabs button > div {
   padding-bottom: 0px;
+  display: inline-block;
 }
 
 .tabs button > div:first-child {
@@ -18,4 +24,15 @@
   .tabs p {
     font-size: 0.9em;
   }
+}
+
+.scrollToSee {
+  padding-top: 40px;
+  text-align: center;
+  color: #888;
+}
+
+.scrollToSee svg {
+  margin-left: 10px;
+  margin-bottom: -6px;
 }
