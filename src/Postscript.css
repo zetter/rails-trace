@@ -1,0 +1,8 @@
+.postcript {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.postcript svg {
+  margin: 0 auto;
+}

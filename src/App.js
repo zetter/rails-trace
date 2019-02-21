@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grommet } from 'grommet';
 import Trace from './Trace';
 import Info from './Info'
+import Postscript from './Postscript'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             path="/key"
             render={({match}) => <Trace trace={trace} mode="key"/>}
           />
+          <Postscript/>
         </Grommet>
       </Router>
     );
