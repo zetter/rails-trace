@@ -29,7 +29,7 @@ class Info extends React.Component {
         <Tab title="What it shows">
           <Box pad="none">
             <Paragraph>
-              This shows every one of the <strong>2041</strong> Ruby methods called by a Rails Server running in production mode while it responded to a HTTP request. These method calls were captured using the <Anchor href="https://ruby-doc.org/core-2.6/TracePoint.html">TracePoint class</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of. 
+              This shows every one of the <strong>2041</strong> Ruby methods called by a Rails Server running in production mode while it responded to a HTTP request. These method calls were captured using the <Anchor href="https://ruby-doc.org/core-2.6/TracePoint.html">TracePoint class</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of.
             </Paragraph>
             <Paragraph>
               <Anchor href="http://www.brendangregg.com/flamegraphs.html">Flame & icicle graphs</Anchor> like this are often scaled to execution time to make it possible to spot performance problems. This graph is scaled so you can see every method invocation so it's easier to follow how Rails works.
@@ -43,7 +43,7 @@ class Info extends React.Component {
             </Paragraph>
             <Paragraph>
               The execution of Ruby blocks, which pass the control flow to a previous point in the stack, are not shown.
-              Much of the Ruby Standard Libary is written in C including the <code>String</code> and <code>Array</code> classes. Calls to these and other C-functions are not shown.
+              Much of the Ruby Standard Library is written in C including the <code>String</code> and <code>Array</code> classes. Calls to these and other C-functions are not shown.
             </Paragraph>
           </Box>
         </Tab>
