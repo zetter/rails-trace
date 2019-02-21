@@ -24,7 +24,7 @@ class Info extends React.Component {
             </Paragraph>
             <Paragraph>
               Here is an annotated trace showing every method call within Rails and it's dependencies.
-              It is for an example application that loads a blog post from the database and renders a page containing the post's title.
+              It is for <Anchor href="https://github.com/zetter/example-blog">an example application</Anchor> that loads a blog post from the database and renders a page containing the post's title.
             </Paragraph>
           </Box>
         </Tab>
