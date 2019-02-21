@@ -1,6 +1,7 @@
 import React from 'react';
 import Method from './Method'
 import MethodInfo from './MethodInfo'
+import Key from './Key'
 import FindOutMore from './FindOutMore'
 import { methodForadditionalInfoSlug } from './Metadata'
 import { Link } from "react-router-dom";
@@ -41,6 +42,8 @@ class Trace extends React.Component {
       infoBoxContents = <MethodInfo selected={selectedMethod} />;
     } else if (this.props.mode === 'find-out-more') {
       infoBoxContents = <FindOutMore slug={this.props.slug} key={this.props.slug} selected={selectedFindOutMoreMethod} />;
+    } else if (this.props.mode === 'key') {
+      infoBoxContents = <Key/>;
     }
 
     return (

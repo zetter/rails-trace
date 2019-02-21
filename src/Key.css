@@ -1,0 +1,9 @@
+.key {
+  margin: 15px 0;
+}
+
+.keyColour {
+  width: 20px;
+  height: 7px;
+  border: 0.5px solid #AAA;
+}

@@ -27,7 +27,7 @@
 }
 
 .scrollToSee {
-  padding-top: 40px;
+  padding-top: 20px;
   text-align: center;
   color: #888;
 }
@@ -35,4 +35,21 @@
 .scrollToSee svg {
   margin-left: 10px;
   margin-bottom: -6px;
+}
+
+.showKey {
+  text-align: center;
+  padding-top: 20px;
+}
+
+
+.info a {
+  color: #7D4CDB;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.info a:hover {
+  text-decoration: underline;
 }

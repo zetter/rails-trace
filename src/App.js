@@ -24,6 +24,10 @@ class App extends Component {
             path="/find-out-more/:slug"
             render={({match}) => <Trace trace={trace} mode="find-out-more" slug={match.params.slug} />}
           />
+          <Route exact
+            path="/key"
+            render={({match}) => <Trace trace={trace} mode="key"/>}
+          />
         </Grommet>
       </Router>
     );
