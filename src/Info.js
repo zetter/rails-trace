@@ -32,7 +32,7 @@ class Info extends React.Component {
         <Tab title="What it shows">
           <Box pad="none">
             <Paragraph>
-              This shows every one of the <strong>2041</strong> Ruby methods called by a Rails Server running in production mode while it responded to a HTTP request. These method calls were captured using the <Anchor href="https://ruby-doc.org/core-2.6/TracePoint.html">TracePoint class</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of.
+              This shows every one of the <strong>2041</strong> Ruby methods called by a Rails 5.2.2 server running in production mode while it responded to a HTTP request. These method calls were captured using the <Anchor href="https://ruby-doc.org/core-2.6/TracePoint.html">TracePoint class</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of.
             </Paragraph>
             <Paragraph>
               <Anchor href="http://www.brendangregg.com/flamegraphs.html">Flame & icicle graphs</Anchor> like this are often scaled to execution time to make it possible to spot performance problems. This graph is scaled so you can see every method invocation so it's easier to follow how Rails works.
@@ -42,7 +42,7 @@ class Info extends React.Component {
         <Tab title="What it doesn't show">
           <Box pad="none">
             <Paragraph>
-              The trace does not show how a Rails server starts. It also doesn't show some processes that Rails caches between requests such as processing the database schema or compiling view templates- showing all these too would make the trace even harder to navigate.
+              The trace does not show how a Rails server starts. It also doesn't show some processes that Rails caches between requests such as processing the database schema or compiling view templates- showing all these too would make the trace much longer.
             </Paragraph>
             <Paragraph>
               The execution of Ruby blocks, which pass the control flow to a previous point in the stack, are not shown.
