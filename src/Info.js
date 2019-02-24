@@ -32,7 +32,7 @@ class Info extends React.Component {
         <Tab title="What it shows">
           <Box pad="none">
             <Paragraph>
-              This shows every one of the <strong>2041</strong> Ruby method calls made by a Rails 5.2.2 server running in production mode while it responded to a HTTP request. These method calls were captured using the <Anchor href="https://ruby-doc.org/core-2.6/TracePoint.html">TracePoint class</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of.
+              This shows every one of the <strong>2041</strong> Ruby method calls made by a Rails 5.2.2 server running in production mode while it responded to a HTTP request. These method calls were captured using Ruby's <Anchor href="https://medium.com/@baweaver/exploring-tracepoint-in-ruby-part-one-example-code-2cf9b1a1b956">TracePoint feature</Anchor>. Methods are colour-coded based on which Ruby Gem they are part of.
             </Paragraph>
             <Paragraph>
               <Anchor href="http://www.brendangregg.com/flamegraphs.html">Flame & icicle graphs</Anchor> like this are often scaled to execution time to make it possible to spot performance problems. This graph is scaled so you can see every method invocation so it's easier to follow how Rails works.
