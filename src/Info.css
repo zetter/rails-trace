@@ -20,6 +20,10 @@
   font-size: 1em;
 }
 
+.tabs div[role="tabpanel"] {
+  z-index: 10;
+}
+
 @media only screen and (max-width: 600px) {
   .tabs p {
     font-size: 0.9em;
