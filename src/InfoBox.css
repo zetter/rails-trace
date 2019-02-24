@@ -1,3 +1,7 @@
+.info-box {
+  z-index: 20;
+}
+
 .container .info-box {
   position: fixed;
   left: 0;
