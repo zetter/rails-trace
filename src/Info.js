@@ -24,7 +24,7 @@ class Info extends React.Component {
               What code runs when you request a page from a Ruby on Rails application?
             </Paragraph>
             <Paragraph>
-              Here is an annotated trace showing every method call within Rails and it's dependencies.
+              Here is an annotated trace showing every method call within Rails and its dependencies.
               It is for <Anchor href="https://github.com/zetter/example-blog">an example application</Anchor> that loads a blog post from the database and renders a page containing the post's title.
             </Paragraph>
           </Box>
